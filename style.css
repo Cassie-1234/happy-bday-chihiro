@@ -519,7 +519,9 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   animation: slideStage 0.5s ease;
 }
 
@@ -1777,6 +1779,36 @@ html, body {
 /* ==========================================================================
    COMPREHENSIVE DEVICE RESPONSIVE CSS (MOBILE, TABLET, IPAD, LAPTOP)
    ========================================================================== */
+#stage2:not(.hidden-stage) {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding-bottom: 12px !important;
+}
+
+#stage2.hidden-stage {
+  display: none !important;
+}
+
+.clean-continue-reward.hidden,
+.task-reward-box.hidden {
+  display: none !important;
+}
+
+.clean-continue-reward:not(.hidden),
+.task-reward-box:not(.hidden) {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  margin: 10px auto !important;
+  padding: 6px 0 !important;
+  z-index: 100;
+}
+
 @media (max-width: 1024px) {
   .app-container {
     max-width: 95vw;
@@ -1784,6 +1816,14 @@ html, body {
   }
   .quest-main-title { font-size: 21px; }
   .stage-header h2 { font-size: 16px; }
+  .scratch-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    max-width: 100% !important;
+  }
+  .photo-scratch-item {
+    height: 110px !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1797,6 +1837,15 @@ html, body {
   .step-num { width: 18px; height: 18px; font-size: 9.5px; }
   .step-name { font-size: 10px; }
   
+  .scratch-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+  }
+  .photo-scratch-item {
+    height: 95px !important;
+  }
+
   .overlay-img-frame { height: 160px !important; }
   .apology-text { font-size: 11px; }
   .meter-layout-row { height: 180px; }
@@ -1821,8 +1870,17 @@ html, body {
   .quest-main-title { font-size: 17px; }
   .step-name { display: none; }
   .stage-badge { font-size: 10px; padding: 2px 8px; }
-  .gold-next-btn, .compact-gold-btn { font-size: 12px !important; padding: 6px 18px !important; }
+  .gold-next-btn, .compact-gold-btn { font-size: 12px !important; padding: 8px 20px !important; }
   
+  .scratch-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+  }
+  .photo-scratch-item {
+    height: 85px !important;
+  }
+
   .wish-input-group { flex-direction: column; }
   .3d-launch-btn { width: 100% !important; }
 }
